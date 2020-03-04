@@ -8,14 +8,19 @@ import java.sql.Blob;
 @Entity
 @Table(name = "test_table")
 public class TestTable {
+    @Column(name = "blob_field")
+    private String blobField;
+
+    @Column(name ="json_field")
+    private String jsonField;
+
+    @Column(name = "text_field")
+    private String textField;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
-    private String jsonField;
-    private String textField;
-
-    private byte[] blobField;
 
     public Integer getId() {
         return id;
@@ -33,11 +38,11 @@ public class TestTable {
         this.jsonField = jsonField;
     }
 
-    public byte[] getBlobField() {
+    public String getBlobField() {
         return blobField;
     }
 
-    public void setBlobField(byte[] blobField) {
+    public void setBlobField(String blobField) {
         this.blobField = blobField;
     }
 
